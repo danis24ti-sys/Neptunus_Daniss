@@ -11,6 +11,7 @@ import com.example.neptunus_daniss.databinding.ActivityMainBinding
 import androidx.activity.enableEdgeToEdge
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.example.neptunus_daniss.Pertemuan_5.FifthActivity
 
 
 class MainActivity : AppCompatActivity() {
@@ -37,6 +38,17 @@ class MainActivity : AppCompatActivity() {
 
             Toast.makeText(this, "Berhasil berpindah ke FourthActivity", Toast.LENGTH_SHORT).show()
         }
+
+        binding.btnMasukP5.setOnClickListener {
+            val intent = Intent(this, FifthActivity::class.java)
+            intent.putExtra("name", "Politeknik Caltex Riau")
+            intent.putExtra("from", "Rumbai")
+            intent.putExtra("age", 25)
+            startActivity(intent)
+
+            Toast.makeText(this, "Berhasil berpindah ke FourthActivity", Toast.LENGTH_SHORT).show()
+        }
+
     }
     override fun onStart() {
         super.onStart()
