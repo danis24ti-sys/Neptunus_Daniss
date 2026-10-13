@@ -1,4 +1,4 @@
-package com.example.neptunus_daniss.Pertemuan_5
+package com.example.neptunus_daniss.home.pertemuan_5
 
 import android.content.Intent
 import android.os.Bundle
@@ -9,11 +9,12 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import com.example.neptunus_daniss.databinding.ActivityFifthBinding
 import com.example.neptunus_daniss.R
+import com.example.neptunus_daniss.databinding.ActivityFifthBinding
 
 class FifthActivity : AppCompatActivity() {
     private lateinit var binding: ActivityFifthBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -62,4 +63,3 @@ class FifthActivity : AppCompatActivity() {
         return true
     }
 }
-

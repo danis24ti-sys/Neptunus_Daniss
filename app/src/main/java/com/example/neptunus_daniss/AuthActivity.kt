@@ -16,16 +16,12 @@ class AuthActivity : AppCompatActivity() {
         binding = ActivityAuthBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-            //Kode ini harus selalu dipanggil saat butuh akses "user_pref"
-            val sharedPref = getSharedPreferences("user_pref", MODE_PRIVATE)
+        val sharedPref = getSharedPreferences("user_pref", MODE_PRIVATE)
+        if (sharedPref.getBoolean("isLogin", false)) {
+            openBaseActivity()
+            return
+        }
 
-            //Kondisi jika isLogin bernilai true
-            val isLogin = sharedPref.getBoolean("isLogin", false)
-            if (isLogin) {
-                //Panggil Intent untuk ke MainActivity
-                val intent = Intent(this, MainActivity::class.java)
-                startActivity(intent)
-            }
         binding.btnLogin.setOnClickListener {
             val username = binding.etUsername.text.toString().trim()
             val password = binding.etPassword.text.toString().trim()
@@ -33,12 +29,10 @@ class AuthActivity : AppCompatActivity() {
             if (username.isNotEmpty() && username == password) {
                 val editor = sharedPref.edit()
                 editor.putBoolean("isLogin", true)
-                editor.putString("username",username)
+                editor.putString("username", username)
                 editor.apply()
-                val intent = Intent(this, MainActivity::class.java)
-                startActivity(intent)
+                openBaseActivity()
             } else {
-
                 AlertDialog.Builder(this)
                     .setTitle("Peringatan")
                     .setMessage("Silahkan coba lagi")
@@ -46,5 +40,10 @@ class AuthActivity : AppCompatActivity() {
                     .show()
             }
         }
+    }
+
+    private fun openBaseActivity() {
+        startActivity(Intent(this, BaseActivity::class.java))
+        finish()
     }
 }

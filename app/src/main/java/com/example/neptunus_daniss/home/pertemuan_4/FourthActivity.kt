@@ -1,4 +1,4 @@
-package com.example.neptunus_daniss.Pertemuan4
+package com.example.neptunus_daniss.home.pertemuan_4
 
 import android.os.Bundle
 import android.util.Log
@@ -18,29 +18,24 @@ class FourthActivity : AppCompatActivity() {
         enableEdgeToEdge()
         Log.e("onCreate", "FourthActivity dibuat pertama kali")
 
-        // Inisialisasi View Binding
         binding = ActivityFourthBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // Mengambil data dari Intent
         val name = intent.getStringExtra("name")
         val from = intent.getStringExtra("from")
         val age = intent.getIntExtra("age", 0)
         Log.e("Data Intent", "Nama: $name , Usia: $age, Asal: $from")
 
-        // WindowInsetsListener
         ViewCompat.setOnApplyWindowInsetsListener(binding.root) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
 
-        // Event Listener Tombol Kembali
         binding.btnKembali.setOnClickListener {
             finish()
         }
 
-        // Event Listener Tombol Snackbar
         binding.btnShowSnackbar.setOnClickListener {
             Snackbar.make(binding.root, "Ini adalah Snackbar", Snackbar.LENGTH_SHORT)
                 .setAction("Tutup") {
@@ -49,7 +44,6 @@ class FourthActivity : AppCompatActivity() {
                 .show()
         }
 
-        // Event Listener Tombol Alert Dialog
         binding.btnShowAlertDialog.setOnClickListener {
             MaterialAlertDialogBuilder(this)
                 .setTitle("Konfirmasi")

@@ -13,25 +13,27 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Neptunus_Daniss">
 
-        <!-- MainActivity (ubah exported menjadi false) -->
         <activity
-            android:name=".MainActivity"
+            android:name=".BaseActivity"
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
         <activity
-            android:name=".Pertemuan4.FourthActivity"
+            android:name=".home.pertemuan_4.FourthActivity"
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
         <activity
-            android:name=".Pertemuan_5.FifthActivity"
+            android:name=".home.pertemuan_5.FifthActivity"
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
         <activity
-            android:name=".Pertemuan_5.WebViewActivity"
+            android:name=".home.pertemuan_5.WebViewActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".home.pertemuan_6.SixthActivity"
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
 
-        <!-- AuthActivity (jadikan LAUNCHER) -->
         <activity
             android:name=".SplashScreenActivity"
             android:exported="true"
