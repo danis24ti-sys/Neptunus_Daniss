@@ -8,4 +8,6 @@
     <string name="message_content">Halaman Message</string>
     <string name="more_content">Halaman More</string>
     <string name="sixth_activity_title">Pertemuan 6 - Fragment</string>
+    <string name="message_avatar_content_description">Foto profil pengirim pesan</string>
+    <string name="tenth_activity_title">Pertemuan 10 - Widget</string>
 </resources>

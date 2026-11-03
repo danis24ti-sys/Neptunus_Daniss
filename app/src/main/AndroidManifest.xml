@@ -33,6 +33,10 @@
             android:name=".home.pertemuan_6.SixthActivity"
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".home.pertemuan_10.TenthActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
 
         <activity
             android:name=".SplashScreenActivity"
