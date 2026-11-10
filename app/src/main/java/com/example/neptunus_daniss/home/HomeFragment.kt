@@ -16,6 +16,7 @@ import com.example.neptunus_daniss.databinding.FragmentHomeBinding
 import com.example.neptunus_daniss.home.pertemuan_4.FourthActivity
 import com.example.neptunus_daniss.home.pertemuan_5.FifthActivity
 import com.example.neptunus_daniss.home.pertemuan_6.SixthActivity
+import com.example.neptunus_daniss.home.pertemuan_10.Pertemuan10Activity
 import com.example.neptunus_daniss.home.pertemuan_10.TenthActivity
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 
@@ -59,6 +60,9 @@ class HomeFragment : Fragment() {
             startActivity(Intent(requireContext(), SixthActivity::class.java))
         }
         binding.btnPertemuan9.setOnClickListener {
+            startActivity(Intent(requireContext(), Pertemuan10Activity::class.java))
+        }
+        binding.btnPertemuan11.setOnClickListener {
             startActivity(Intent(requireContext(), TenthActivity::class.java))
         }
 

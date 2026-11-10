@@ -1,33 +1,23 @@
 package com.example.neptunus_daniss.home.pertemuan_10
 
 import android.os.Bundle
-import android.widget.Toast
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
+import androidx.core.content.ContextCompat
 import com.example.neptunus_daniss.R
 import com.example.neptunus_daniss.databinding.ActivityTenthBinding
-import com.google.android.material.chip.Chip
+import com.google.android.material.tabs.TabLayoutMediator
 
 class TenthActivity : AppCompatActivity() {
     private lateinit var binding: ActivityTenthBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
         binding = ActivityTenthBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        ViewCompat.setOnApplyWindowInsetsListener(binding.root) { view, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            view.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
-        }
-
         setSupportActionBar(binding.toolbar)
         supportActionBar?.apply {
-            title = getString(R.string.tenth_activity_title)
+            title = getString(R.string.eleventh_activity_title)
             setDisplayHomeAsUpEnabled(true)
             setDisplayShowHomeEnabled(true)
         }
@@ -35,12 +25,29 @@ class TenthActivity : AppCompatActivity() {
             onBackPressedDispatcher.onBackPressed()
         }
 
-        binding.chipGroupFilter.setOnCheckedStateChangeListener { group, checkedIds ->
-            checkedIds.firstOrNull()?.let { checkedId ->
-                val chip = group.findViewById<Chip>(checkedId)
-                Toast.makeText(this, "Filter: ${chip.text}", Toast.LENGTH_SHORT).show()
+        binding.viewPager.adapter = TenthTabsAdapter(this)
+        TabLayoutMediator(binding.tabLayout, binding.viewPager) { tab, position ->
+            tab.text = when (position) {
+                0 -> "Tab A"
+                1 -> "Tab B"
+                2 -> "Produk"
+                else -> throw IllegalStateException("Posisi tidak valid")
             }
-        }
+
+            when (position) {
+                0 -> {
+                    tab.icon = ContextCompat.getDrawable(this, R.drawable.ic_home)
+                    tab.getOrCreateBadge().isVisible = true
+                }
+                1 -> {
+                    tab.icon = ContextCompat.getDrawable(this, R.drawable.ic_home)
+                    tab.getOrCreateBadge().apply {
+                        isVisible = true
+                        number = 5
+                    }
+                }
+            }
+        }.attach()
     }
 
     override fun onSupportNavigateUp(): Boolean {

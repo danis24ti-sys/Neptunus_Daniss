@@ -10,4 +10,6 @@
     <string name="sixth_activity_title">Pertemuan 6 - Fragment</string>
     <string name="message_avatar_content_description">Foto profil pengirim pesan</string>
     <string name="tenth_activity_title">Pertemuan 10 - Widget</string>
+    <string name="product_image_content_description">Gambar produk</string>
+    <string name="eleventh_activity_title">Pertemuan 11 - Tab &amp; RecyclerView</string>
 </resources>
