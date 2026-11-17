@@ -41,6 +41,9 @@
             android:name=".home.pertemuan_10.Pertemuan10Activity"
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".message.tutorial.TutorialMessageActivity"
+            android:exported="false" />
 
         <activity
             android:name=".SplashScreenActivity"

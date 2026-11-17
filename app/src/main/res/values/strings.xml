@@ -12,4 +12,6 @@
     <string name="tenth_activity_title">Pertemuan 10 - Widget</string>
     <string name="product_image_content_description">Gambar produk</string>
     <string name="eleventh_activity_title">Pertemuan 11 - Tab &amp; RecyclerView</string>
+    <string name="photo_content_description">Photo from Picsum</string>
+    <string name="tutorial_logo_description">Logo aplikasi</string>
 </resources>

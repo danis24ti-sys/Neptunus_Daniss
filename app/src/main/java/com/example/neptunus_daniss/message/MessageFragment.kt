@@ -1,13 +1,18 @@
 package com.example.neptunus_daniss.message
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.Menu
+import android.view.MenuInflater
+import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.example.neptunus_daniss.R
 import com.example.neptunus_daniss.databinding.FragmentMessageBinding
+import com.example.neptunus_daniss.message.tutorial.TutorialMessageActivity
 
 class MessageFragment : Fragment() {
     private val messageList = listOf(
@@ -26,6 +31,11 @@ class MessageFragment : Fragment() {
     private var _binding: FragmentMessageBinding? = null
     private val binding get() = _binding!!
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setHasOptionsMenu(true)
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -43,6 +53,19 @@ class MessageFragment : Fragment() {
             setDisplayHomeAsUpEnabled(false)
         }
         binding.listMessageItems.adapter = MessageAdapter(requireContext(), messageList)
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.message_toolbar_menu, menu)
+        super.onCreateOptionsMenu(menu, inflater)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if (item.itemId == R.id.action_tutorial) {
+            startActivity(Intent(requireContext(), TutorialMessageActivity::class.java))
+            return true
+        }
+        return super.onOptionsItemSelected(item)
     }
 
     override fun onDestroyView() {

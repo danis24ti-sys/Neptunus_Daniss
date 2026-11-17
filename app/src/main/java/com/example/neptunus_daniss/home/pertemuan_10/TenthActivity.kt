@@ -1,5 +1,6 @@
 package com.example.neptunus_daniss.home.pertemuan_10
 
+import android.graphics.Color
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
@@ -30,21 +31,18 @@ class TenthActivity : AppCompatActivity() {
             tab.text = when (position) {
                 0 -> "Tab A"
                 1 -> "Tab B"
-                2 -> "Produk"
+                2 -> "Tab C"
                 else -> throw IllegalStateException("Posisi tidak valid")
             }
-
-            when (position) {
-                0 -> {
-                    tab.icon = ContextCompat.getDrawable(this, R.drawable.ic_home)
-                    tab.getOrCreateBadge().isVisible = true
-                }
-                1 -> {
-                    tab.icon = ContextCompat.getDrawable(this, R.drawable.ic_home)
-                    tab.getOrCreateBadge().apply {
-                        isVisible = true
-                        number = 5
-                    }
+            tab.icon = ContextCompat.getDrawable(this, R.drawable.ic_tab_home)
+            tab.getOrCreateBadge().apply {
+                isVisible = true
+                backgroundColor = Color.parseColor("#C62828")
+                badgeTextColor = Color.WHITE
+                if (position == 0) {
+                    clearNumber()
+                } else {
+                    number = 5
                 }
             }
         }.attach()
